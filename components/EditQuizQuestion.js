@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class CreateQuiz extends Component {
+export default class EditQuizQuestion extends Component {
 
   static navigationOptions = ({ navigation }) => ({
-    title: 'Create New Quiz',
+    title: 'Edit Quiz Question',
     headerStyle: { backgroundColor: 'steelblue' },
     headerTitleStyle: { color: 'darkblue', fontSize: Platform.OS === 'ios' ? 18 : 20, },
     headerLeft: (<View></View>
@@ -60,35 +60,12 @@ export default class CreateQuiz extends Component {
     );
   }
 
-  nextOnPress = () => {
-    //Alert.alert('test message', `inside nextOnPress`);
-    this.props.navigation.navigate('EditQuizQuestion',
-      {
-        quizId: -1,
-      });
-
-  }
-
   render() {
     return (
       <View style={{ flex: 1, flexDirection: 'column', backgroundColor: 'lightsteelblue', paddingTop: 30 }}>
         <View style={styles.container}>
-          <TextInput
-            style={styles.textInput}
-            autoCapitalize='none'
-            underlineColorAndroid='transparent'
-            onChangeText={(quizName) => this.setState({ quizName })}
-            placeholder="Quiz Name" />
-          <LinearGradient style={{ borderRadius: 5, alignSelf: 'stretch', marginTop: 20 }}
-            colors={['#4c669f', '#3b5998', '#192f6a']} >
-            <TouchableHighlight underlayColor='steelblue' onPress={this.nextOnPress}>
-              <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                <Text style={{ fontSize: 20, color: 'white', marginLeft: 5, marginTop: 5, marginBottom: 5 }}>Next</Text>
-                <MaterialIcon name='arrow-forward' color='white' size={20} style={{ alignSelf: 'center', marginLeft: 5, marginTop: 5, marginBottom: 5 }} />
-              </View>
-            </TouchableHighlight>
-          </LinearGradient>
-        </View >
+          <Text>This is the edit quiz question screen</Text>
+        </View>
       </View >
     );
   }

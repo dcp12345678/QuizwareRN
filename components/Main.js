@@ -35,8 +35,7 @@ const styles = StyleSheet.create({
   },
 });
 
-
-class Main extends Component {
+export default class Main extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: 'Quizware',
@@ -86,4 +85,3 @@ class Main extends Component {
   }
 };
 
-export default Main;
