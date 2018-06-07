@@ -38,9 +38,24 @@ const styles = StyleSheet.create({
 
 class Main extends Component {
 
-  static navigationOptions = {
-    header: null
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Quizware',
+    headerStyle: { backgroundColor: 'steelblue' },
+    headerTitleStyle: { color: 'darkblue', fontSize: Platform.OS === 'ios' ? 18 : 20, },
+    headerLeft: (<View></View>
+    ),
+    headerRight: (
+      <View style={{ flexDirection: 'row' }}>
+        <TouchableHighlight
+          style={{
+            borderRadius: 20,
+          }}
+          underlayColor='#578dba' onPress={() => { navigation.state.params.createQuizOnPress(); }}>
+          <MaterialIcon name='add-circle-outline' color='white' size={30} style={{ alignSelf: 'center', marginLeft: 5, marginTop: 5, marginBottom: 5, marginRight: 5 }} />
+        </TouchableHighlight>
+      </View>
+    ),
+  });
 
   constructor(props) {
     super(props);
@@ -50,16 +65,22 @@ class Main extends Component {
     // wire up the navigation parameters
     this.props.navigation.setParams(
       {
+        createQuizOnPress: this.createQuizOnPress
       }
     );
   }
 
+  createQuizOnPress = () => {
+    this.props.navigation.navigate('CreateQuiz',
+      {
+        quizId: -1,
+      });
+  };
 
   render() {
-    debugger;
     return (
       <View style={{ flex: 1, flexDirection: 'column', backgroundColor: 'lightsteelblue' }}>
-        <Text>Hey</Text>
+        <Text>Display current quizzes here</Text>
       </View>
     );
   }
